@@ -46,7 +46,7 @@ def print_tasks(service, task_list_id)
     tasks = service.list_tasks(task_list_id)
     puts "No tasks" if tasks.items.empty?
     tasks.items.reject { |task| task.title.empty? }.each do |task|
-      puts "- #{task.title}"
+      puts "#{task.completed ? '+' : '-'} #{task.title}"
     end
 end
 
